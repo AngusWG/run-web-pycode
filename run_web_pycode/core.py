@@ -67,7 +67,8 @@ def read_proxy(no_proxy: bool = False) -> dict:
     if os.path.exists(local_config_path):
         print("read {}".format(local_config_path))
         config.read(local_config_path)
-    return dict(config["proxies"])
+
+    return dict(config["proxies"] if config.has_section("proxies") else [])
 
 
 def run_remote_script(url: str, no_proxy: bool = False, timeout: int = 3) -> None:
