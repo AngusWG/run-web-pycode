@@ -25,5 +25,5 @@ run_web_pycode
 
 - [x] Run code by Url
 - [x] A simple entry point `pyw`
-- [ ] Set proxy
+- [x] Set proxy
 - [ ] Convert GitHub.com url to <raw.githubusercontent.com> file

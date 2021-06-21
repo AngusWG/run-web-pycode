@@ -3,6 +3,8 @@
 """ run_web_pycode 's entry_points"""
 import fire
 
+from run_web_pycode.core import read_proxy, run_remote_script, set_proxy
+
 
 def entry_point() -> None:  # pragma: no cover
     """
@@ -10,7 +12,14 @@ def entry_point() -> None:  # pragma: no cover
     https://github.com/google/python-fire
     """
     fire.core.Display = lambda lines, out: print(*lines, file=out)
-    fire.Fire(command="version")
+    fire.Fire(
+        {
+            "version": version,
+            "run": run_remote_script,
+            "set_proxy": set_proxy,
+            "read_proxy": read_proxy,
+        }
+    )
 
 
 def ipython() -> None:  # pragma: no cover
@@ -21,16 +30,10 @@ def ipython() -> None:  # pragma: no cover
 
 
 def version() -> str:
-    """显示当前版本"""
+    """show version"""
     import run_web_pycode
 
     return run_web_pycode.__version__
-
-
-def run(url: str) -> None:
-    from run_web_pycode.core import run_remote_script
-
-    return run_remote_script(url)
 
 
 if __name__ == "__main__":
