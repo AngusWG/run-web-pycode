@@ -32,3 +32,9 @@ jobs:
           coverage run --source run_web_pycode -m pytest
           coverage combine
 
+      - name: package test
+        run: |
+          pip install build
+          python -m build --sdist --outdir dist/ .
+          pip install dist/*
+          pytest tests
