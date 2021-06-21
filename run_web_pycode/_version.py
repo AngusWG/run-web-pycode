@@ -41,7 +41,7 @@ def get_config():
     cfg.VCS = "git"
     cfg.style = "pep440"
     cfg.tag_prefix = ""
-    cfg.parentdir_prefix = "run_web_pycode-"
+    cfg.parentdir_prefix = "run_web_pycode"
     cfg.versionfile_source = "run_web_pycode/_version.py"
     cfg.verbose = False
     return cfg

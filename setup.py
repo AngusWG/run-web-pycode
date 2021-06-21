@@ -30,6 +30,7 @@ setup(
     cmdclass=versioneer.get_cmdclass(),
     description="A package to execute remote python scripts",
     long_description=readme + "\n\n" + history,
+    long_description_content_type="text/markdown",
     author="AngusWG",
     author_email="740713651@qq.com",
     url="https://github.com/AngusWG/run-web-pycode",
