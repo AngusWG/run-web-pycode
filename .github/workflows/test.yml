@@ -1,0 +1,34 @@
+name: Test
+on: [ push, pull_request ]
+
+jobs:
+  test:
+    # The type of runner that the job will run on
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ ubuntu-latest, macos-latest, windows-latest ]
+        python-version: [ '3.6', '3.7', '3.8', '3.9' ]
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Python
+        uses: actions/setup-python@v1
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Setup package
+        run: |
+          pip install .[dev_require]
+
+      - name: lint
+        run: |
+          flake8 run_web_pycode tests
+          black run_web_pycode tests --check
+          isort run_web_pycode tests --check-only --profile black
+
+      - name: coverage
+        run: |
+          coverage run --source run_web_pycode -m pytest
+          coverage combine
+
