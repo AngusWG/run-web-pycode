@@ -4,11 +4,23 @@
 
 A simple package to execute remote python scripts
 
-``` bash
-pyw 
-run_web_pycode 
+* pyw is simplified command as run_web_pycode
 
+``` bash
+# run_web_pycode https://raw.githubusercontent.com/AngusWG/run-web-pycode/master/tests/a_script.py
+pyw run https://raw.githubusercontent.com/AngusWG/run-web-pycode/master/tests/a_script.py
+
+# set proxy
+pyw set_proxy http https://127.0.0.1:9999
+pyw set_proxy http # for unset
+
+# get help
+pyw --help
+pyw run --help
+pyw set_proxy --help
 ```
+
+---
 
 * [Black formatter](https://github.com/psf/black)
 
@@ -26,4 +38,6 @@ run_web_pycode
 - [x] Run code by Url
 - [x] A simple entry point `pyw`
 - [x] Set proxy
+- [ ] CI\CD
+- [ ] package to pypi
 - [ ] Convert GitHub.com url to <raw.githubusercontent.com> file
