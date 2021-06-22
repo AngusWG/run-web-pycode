@@ -2,7 +2,13 @@
 
 A simple package to execute remote python scripts
 
-example:
+Install:
+
+``` bash
+pip install run-web-pycode
+```
+
+Example:
 
 ``` bash
 # run_web_pycode https://raw.githubusercontent.com/AngusWG/run-web-pycode/master/tests/a_script.py
@@ -18,9 +24,22 @@ pyw run --help
 pyw set_proxy --help
 ```
 
+> when you use `pyw run https://raw.githubusercontent.com/AngusWG/run-web-pycode/master/tests/a_script.py`  
+> it's equal `python -c "from urllib.request import urlopen ;exec(urlopen('https://github.com/AngusWG/cookiecutter-py-package/raw/master/git_pre_commit_hook.py').read())"`
+
 * pyw is simplified command as run_web_pycode
 
----
+## Features
+
+- [x] Run code by Url
+- [x] A simple entry point `pyw`
+- [x] Set proxy
+- [x] package to pypi
+- [ ] Convert GitHub.com url to raw.githubusercontent.com url
+
+> Please feel free to suggest issue and contribute code.
+
+## For Contributor
 
 * [Black formatter](https://github.com/psf/black)
 
@@ -31,10 +50,6 @@ pyw set_proxy --help
 
 > Use flake8 to check your code style.
 
-## Features
+* [Cookiecutter maker](https://github.com/AngusWG/cookiecutter-py-package)
 
-- [x] Run code by Url
-- [x] A simple entry point `pyw`
-- [x] Set proxy
-- [ ] package to pypi
-- [ ] Convert GitHub.com url to <raw.githubusercontent.com> file
+> This project is made by [AngusWG\cookiecutter-py-package](https://github.com/AngusWG/cookiecutter-py-package)
